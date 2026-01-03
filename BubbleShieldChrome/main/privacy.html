@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Shield - Privacy Policy</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .subtitle {
+      color: #666;
+      margin: 0 0 30px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      margin: 30px 0 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    h3 {
+      margin: 20px 0 10px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    p {
+      margin: 0 0 15px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    ul {
+      margin: 10px 0 15px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 6px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    strong {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .highlight-box {
+      background: #f0f8ff;
+      border-left: 4px solid #1da1f2;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .highlight-box p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1da1f2;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      background: #f5f5f5;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 14px;
+      color: #1a1a1a;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="options.html" class="back-link">← Back to Settings</a>
+
+    <h1>🛡️ Privacy Policy</h1>
+    <p class="subtitle">Last Updated: December 20, 2025</p>
+
+    <h2>Overview</h2>
+    <p>Bubble Shield is committed to protecting your privacy. This extension is designed with privacy as a core principle
+      and operates entirely locally on your device.</p>
+
+    <h2>Information Collection and Use</h2>
+
+    <h3>What We Don't Collect</h3>
+    <p>Bubble Shield does NOT:</p>
+    <ul>
+      <li>Collect any personal information</li>
+      <li>Track your browsing activity</li>
+      <li>Send any data to external servers</li>
+      <li>Make any network requests beyond what Twitter/X already makes</li>
+      <li>Store any information outside your local device</li>
+      <li>Use analytics or tracking services</li>
+      <li>Share any data with third parties</li>
+    </ul>
+
+    <h3>What We Store Locally</h3>
+    <p>Bubble Shield stores the following information locally in your browser using the browser's built-in storage API:</p>
+    <ul>
+      <li><strong>Blocked Keywords:</strong> The list of keywords you configure for filtering tweets</li>
+      <li><strong>Cache Data:</strong> Temporarily cached profile bio information (stored for 24 hours to improve
+        performance)</li>
+    </ul>
+
+    <p>All of this data:</p>
+    <ul>
+      <li>Remains exclusively on your device</li>
+      <li>Is never transmitted to any server</li>
+      <li>Is managed through your browser's standard storage mechanisms</li>
+      <li>Can be cleared by removing the extension or clearing browser data</li>
+    </ul>
+
+    <h2>How the Extension Works</h2>
+    <p>Bubble Shield operates entirely within your browser:</p>
+    <ol>
+      <li>Detects tweets as you scroll through Twitter/X</li>
+      <li>Extracts usernames from visible tweets</li>
+      <li>Uses Twitter's native hover card feature to access profile bios</li>
+      <li>Compares bios against your configured keywords locally</li>
+      <li>Hides matching tweets using CSS</li>
+    </ol>
+
+    <div class="highlight-box">
+      <p><strong>Important:</strong> All processing happens locally. The extension does not make any external API calls or
+        network requests. It only uses Twitter's existing functionality that your browser already loads.</p>
+    </div>
+
+    <h2>Permissions Used</h2>
+    <p>The extension requests the following browser permissions:</p>
+    <ul>
+      <li><strong>storage:</strong> To save your blocked keywords and cache bio data locally</li>
+      <li><strong>host_permissions</strong> for <code>twitter.com</code> and <code>x.com</code>: To run the content script
+        that filters tweets on these websites only</li>
+    </ul>
+    <p>These permissions are used exclusively for the extension's core functionality and nothing else.</p>
+
+    <h2>Data Sharing</h2>
+    <p>Bubble Shield does not share, sell, rent, or transmit any data to third parties. Since no data is collected, there
+      is nothing to share.</p>
+
+    <h2>Browser Sync</h2>
+    <p>If you enable browser synchronization features (like Chrome Sync), your blocked keywords may sync across your
+      devices through your browser's built-in sync mechanism. This is controlled entirely by your browser settings, not by
+      the extension.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Bubble Shield does not knowingly collect any information from anyone, including children under 13.</p>
+
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update this privacy policy from time to time. Any changes will be reflected in the "Last Updated" date at
+      the top of this document.</p>
+
+    <h2>Third-Party Services</h2>
+    <p>Bubble Shield does not integrate with any third-party services, analytics platforms, or external APIs.</p>
+
+    <h2>Your Rights</h2>
+    <p>Since Bubble Shield does not collect any personal data:</p>
+    <ul>
+      <li>There is no data to access, modify, or delete</li>
+      <li>You can remove all locally stored data by uninstalling the extension</li>
+      <li>You can clear cached data through your browser's standard data clearing mechanisms</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this privacy policy or the extension's privacy practices, please contact us at:</p>
+    <div class="contact">BubbleShieldApp@proton.me</div>
+
+    <hr>
+
+    <div class="highlight-box">
+      <p><strong>In Summary:</strong> Bubble Shield collects zero data, makes zero external requests, and keeps everything
+        local to your device. Your privacy is fully protected.</p>
+    </div>
+
+  </div>
+</body>
+
+</html>

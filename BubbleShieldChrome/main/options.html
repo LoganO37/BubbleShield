@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubble Shield - Options</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .subtitle {
+      color: #666;
+      margin: 0 0 30px 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #1da1f2;
+    }
+
+    .help-text {
+      margin: 8px 0 20px 0;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    button {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button.primary {
+      background: #1da1f2;
+      color: white;
+    }
+
+    button.primary:hover {
+      background: #1a91da;
+    }
+
+    button.primary:active {
+      transform: scale(0.98);
+    }
+
+    button.secondary {
+      background: #e8e8e8;
+      color: #333;
+    }
+
+    button.secondary:hover {
+      background: #d8d8d8;
+    }
+
+    .status {
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .status.visible {
+      opacity: 1;
+    }
+
+    .status.success {
+      background: #e6f7e6;
+      color: #2d7a2d;
+    }
+
+    .status.error {
+      background: #ffe6e6;
+      color: #c41e3a;
+    }
+
+    .info-box {
+      background: #f0f8ff;
+      border-left: 4px solid #1da1f2;
+      padding: 16px;
+      margin-top: 30px;
+      border-radius: 4px;
+    }
+
+    .info-box h2 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #1a1a1a;
+    }
+
+    .info-box p {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-box ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .info-box li {
+      margin: 6px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🛡️ Bubble Shield</h1>
+    <p class="subtitle">Filter tweets based on keywords found in the author's profile bio. All processing happens
+      locally in your browser. <a href="https://buymeacoffee.com/bubbleshieldapp">Support Bubble Shield</a></p>
+
+    <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px;">
+      <strong style="color: #856404;">⚠️ Don't forget to save your settings!</strong>
+    </div>
+
+    <label>Pre-made Lists</label>
+    <div class="lists-container"
+      style="margin-bottom: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+      <label style="display: flex; align-items: center; cursor: pointer; user-select: none;">
+        <input type="checkbox" id="list-nsfw" style="margin-right: 8px;">
+        <span>NSFW / Adult</span>
+      </label>
+      <label style="display: flex; align-items: center; cursor: pointer; user-select: none;">
+        <input type="checkbox" id="list-crypto" style="margin-right: 8px;">
+        <span>Crypto / NFT</span>
+      </label>
+      <label style="display: flex; align-items: center; cursor: pointer; user-select: none;">
+        <input type="checkbox" id="list-maga" style="margin-right: 8px;">
+        <span>MAGA / Right-wing</span>
+      </label>
+      <label style="display: flex; align-items: center; cursor: pointer; user-select: none;">
+        <input type="checkbox" id="list-racist" style="margin-right: 8px;">
+        <span>Racist / Hate Speech</span>
+      </label>
+      <label style="display: flex; align-items: center; cursor: pointer; user-select: none;">
+        <input type="checkbox" id="list-far-left" style="margin-right: 8px;">
+        <span>Far-Left / Communist</span>
+      </label>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <label for="keywords" style="margin-bottom: 0;">Edit List Content</label>
+      <select id="list-selector" style="padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">
+        <option value="custom">Custom Keywords</option>
+        <option value="nsfw">NSFW List</option>
+        <option value="crypto">Crypto List</option>
+        <option value="maga">MAGA List</option>
+        <option value="racist">Racist List</option>
+        <option value="far-left">Far-Left List</option>
+      </select>
+    </div>
+    <p class="help-text">
+      Enter one keyword or phrase per line. Tweets from users whose bio contains any of these keywords will be
+      hidden.<br>
+      <strong>Partial matching:</strong> "Chicago Cubs" will match "Chicago Cubs fan", "Love the Chicago Cubs", etc.<br>
+      <strong>Case-insensitive:</strong> "crypto" matches "Crypto", "CRYPTO", "CrYpTo", etc.
+    </p>
+    <textarea id="keywords" placeholder="Enter keywords, one per line&#10;e.g.,&#10;crypto&#10;NFT&#10;web3"></textarea>
+
+    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+      <h2 style="font-size: 18px; margin-bottom: 10px;">🚫 Blocked Phrases (Tweet Content)</h2>
+      <p class="help-text">
+        Enter phrases to hide specific tweets without blocking the user. Tweets containing these phrases will be hidden,
+        but the user will NOT be added to your block cache.<br>
+        <strong>Case-insensitive partial matching.</strong>
+      </p>
+      <textarea id="phrases"
+        placeholder="Enter phrases, one per line&#10;e.g.,&#10;spoilers for movie&#10;specific topic"
+        style="min-height: 150px;"></textarea>
+    </div>
+
+    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+      <h2 style="font-size: 18px; margin-bottom: 10px;">✅ Whitelisted Users (Exempt)</h2>
+      <p class="help-text">
+        Enter usernames to exempt from filtering. These users will NEVER be blocked.<br>
+        <strong>Format:</strong> @username (one per line)
+      </p>
+      <textarea id="whitelist" placeholder="Enter usernames, one per line&#10;e.g.,&#10;@username1&#10;@username2"
+        style="min-height: 150px;"></textarea>
+    </div>
+
+
+
+    <div class="button-row">
+      <button id="save" class="primary">Save Settings</button>
+      <button id="clear" class="secondary">Clear All</button>
+      <div id="status" class="status"></div>
+    </div>
+
+    <div class="info-box">
+      <h2>How it works</h2>
+      <ul>
+        <li>As you scroll Twitter/X, the extension checks each tweet author's bio</li>
+        <li>If a bio contains any of your blocked keywords, that tweet is hidden</li>
+        <li>Profile data is fetched using your existing Twitter/X session (no API required)</li>
+        <li>Results are cached for 24 hours to improve performance</li>
+        <li><strong>Privacy:</strong> All data stays on your device - nothing is sent to external servers</li>
+      </ul>
+
+      <h2>Tips</h2>
+      <ul>
+        <li><strong>Partial matching works:</strong> "Chicago Cubs" matches "I love the Chicago Cubs!" or "Chicago Cubs
+          fan since 2010"</li>
+        <li><strong>Case doesn't matter:</strong> "NFT" matches "nft", "Nft", "NFT", etc.</li>
+        <li><strong>Be specific to avoid over-filtering:</strong> Use "crypto trader" instead of "crypto" if you only
+          want to filter traders</li>
+        <li><strong>Phrases work:</strong> Multi-word phrases like "day trader" or "web3 developer" are fully supported
+        </li>
+        <li>After changing keywords, refresh Twitter/X to apply changes to already-loaded tweets</li>
+
+      </ul>
+    </div>
+    <div class="info-box">
+      <h2>ℹ️ How Updates Work</h2>
+      <p>Bubble Shield uses a smart merging system:</p>
+      <ul>
+        <li><strong>New Words:</strong> When the extension updates, new blocked words added by the developer will
+          automatically appear in your lists.</li>
+        <li><strong>Your Edits:</strong> Any words you manually add or remove will be remembered and preserved.</li>
+      </ul>
+      <p><em>Note: If you had previously removed a default word, it may reappear once after a major update to ensure you
+          see the latest changes.</em></p>
+    </div>
+
+    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+      <a href="privacy.html" style="color: #1da1f2; text-decoration: none; font-size: 14px;">Privacy Policy</a>
+    </div>
+  </div>
+
+  <script src="lists.js"></script>
+  <script src="options.js"></script>
+</body>
+
+</html>
