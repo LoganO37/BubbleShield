@@ -138,7 +138,18 @@ function injectFloatingIcon() {
   iconContainer.title = 'Bubble Shield Settings';
 
   iconContainer.onclick = () => {
-    browserAPI.runtime.sendMessage({ action: 'openOptions' });
+    browserAPI.runtime.sendMessage({ action: 'openOptions' })
+      .then(response => {
+        if (!response || !response.success) {
+          console.error('[Bubble Shield] Failed to open options page');
+        }
+      })
+      .catch(err => {
+        console.error('[Bubble Shield] Error opening options:', err);
+        // Fallback: try to open options URL directly
+        const optionsUrl = browserAPI.runtime.getURL('options.html');
+        window.open(optionsUrl, '_blank');
+      });
   };
 
   // Style the container

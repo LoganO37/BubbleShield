@@ -39,5 +39,7 @@ browserAPI.runtime.onInstalled.addListener((details) => {
 browserAPI.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'openOptions') {
     browserAPI.runtime.openOptionsPage();
+    sendResponse({ success: true });
   }
+  return true; // Keep message channel open for async response
 });
