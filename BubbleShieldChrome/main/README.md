@@ -4,13 +4,13 @@ A privacy-focused browser extension that filters tweets on Twitter/X based on ke
 
 ## Features
 
-- ✅ **Local-only processing** - No external API calls or data transmission
-- ✅ **Privacy-first** - Uses Twitter's hover cards, nothing leaves your device
-- ✅ **Super efficient** - Leverages Twitter's native hover feature, no network requests needed
-- ✅ **Smart caching** - Results cached for 24 hours to minimize repeated checks
-- ✅ **Automatic filtering** - Works seamlessly as you scroll your timeline
-- ✅ **Easy configuration** - Simple options page to manage blocked keywords
-- ✅ **Cross-browser** - Works on Chrome, Edge, Brave, and Firefox
+-  **Local-only processing** - No external API calls or data transmission
+-  **Privacy-first** - Uses Twitter's hover cards, nothing leaves your device
+-  **Super efficient** - Leverages Twitter's native hover feature, no network requests needed
+-  **Smart caching** - Results cached for 24 hours to minimize repeated checks
+-  **Automatic filtering** - Works seamlessly as you scroll your timeline
+-  **Easy configuration** - Simple options page to manage blocked keywords
+-  **Cross-browser** - Works on Chrome, Edge, Brave, and Firefox
 
 ## How It Works
 
@@ -35,18 +35,7 @@ A privacy-focused browser extension that filters tweets on Twitter/X based on ke
 3. Enable **Developer mode** (toggle in top-right corner)
 4. Click **Load unpacked**
 5. Select the folder containing these extension files
-6. The extension is now installed! 🎉
-
-### Firefox (Temporary Installation)
-
-1. Download or clone this repository
-2. Open Firefox and navigate to `about:debugging`
-3. Click **This Firefox**
-4. Click **Load Temporary Add-on**
-5. Navigate to the extension folder and select `manifest.json`
-6. The extension is now installed temporarily (until Firefox restarts)
-
-**Note:** For permanent Firefox installation, you'll need to sign the extension through Mozilla's Add-on Developer Hub.
+6. The extension is now installed! 
 
 ## Configuration
 
@@ -120,11 +109,6 @@ Defines the extension structure, permissions, and configuration. Uses Manifest V
 3. Try disabling and re-enabling the extension
 4. Check the browser console for errors
 
-### Performance issues
-- The extension caches results for 24 hours
-- If you notice slowdowns, try reducing the number of blocked keywords
-- Each unique user is only checked once per 24 hours
-
 ## Development
 
 To modify or debug the extension:
@@ -133,30 +117,6 @@ To modify or debug the extension:
 2. Go to your browser's extensions page
 3. Click the **Reload** button for this extension
 4. Refresh Twitter/X to see your changes
-
-### Debugging
-- **Background script**: Go to extensions page → Click "Service worker" or "Inspect views: background page"
-- **Content script**: Open browser console on Twitter/X (F12)
-- **Options page**: Right-click options page → Inspect
-
-### Key Selectors (May need updating if Twitter changes)
-```javascript
-// In content.js
-- Tweet elements: article[role="article"]
-- Profile links: div[data-testid="User-Name"] a[href^="/"]
-- Hover card: [data-testid="HoverCard"]
-- Bio element: [data-testid="UserDescription"]
-```
-
-## Browser Compatibility
-
-| Browser | Version | Status |
-|---------|---------|--------|
-| Chrome  | 88+     | ✅ Full support (MV3) |
-| Edge    | 88+     | ✅ Full support (MV3) |
-| Brave   | 1.20+   | ✅ Full support (MV3) |
-| Firefox | 109+    | ✅ Full support (MV3) |
-| Opera   | 74+     | ✅ Full support (MV3) |
 
 ## License
 
