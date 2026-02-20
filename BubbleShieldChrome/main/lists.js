@@ -1,5 +1,7 @@
+'use strict';
+
 /**
- * Pre-made blocklists for Twitter Bio Filter
+ * Pre-made blocklists for Bubble Shield
  */
 const PREMADE_LISTS = {
     nsfw: [
@@ -35,9 +37,7 @@ const PREMADE_LISTS = {
         "sub to my onlyfans",
         "dick rate",
         "rate your",
-        "findom",
         "sugar baby",
-        "fetish",
         "spoil me",
         "wishlist",
         "naughty",
@@ -79,9 +79,6 @@ const PREMADE_LISTS = {
         "↖",
         "↓",
         "↑",
-        "↗",
-        "↘",
-        "↙",
         // "👇🏻", "👇🏼", "👇🏽", "👇🏾", "👇🏿", "👇",
         // "f👉🏻", "f👉🏼", "f👉🏽", "f👉🏾", "f👉🏿", "f👉",
         // "f 👉🏻", "f 👉🏼", "f 👉🏽", "f 👉🏾", "f 👉🏿", "f 👉",
@@ -94,7 +91,6 @@ const PREMADE_LISTS = {
         "free ⬇",
         "milkers",
         "chaterbate",
-        "adult content",
         // "👅",
         // "💋",
         "i have one",
@@ -109,11 +105,9 @@ const PREMADE_LISTS = {
         "respond here",
         "my of",
         "my o f",
-        "more of me",
         "beacons",
         "hoo.be",
         "link below for more",
-        "Link below bio",
         "premium",
         "snapchat",
         "Adults only",
@@ -143,7 +137,6 @@ const PREMADE_LISTS = {
         "liquidity mining",
         "seed phrase",
         "apes",
-        "web3",
         "web 3",
         "web-3",
         "web3.0",

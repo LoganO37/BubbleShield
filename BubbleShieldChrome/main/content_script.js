@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Content Script for Bubble Shield (content_script.js)
  *
@@ -12,7 +14,8 @@
  * The hovercard inherits the username context from the base tweet element.
  */
 
-// Debug logging function
+// Debug mode (loaded from storage, off by default to keep console clean)
+let debugMode = false;
 
 // Debug statistics
 const debugStats = {
@@ -28,7 +31,7 @@ const debugStats = {
 
 // Debug logging function
 function debugLog(message, data = null) {
-  // Simple console logging
+  if (!debugMode) return;
   const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
   if (data) {
     console.log(`[${timestamp}] [Bubble Shield] ${message}`, data);
@@ -61,6 +64,7 @@ let whitelist = [];
 /**
  * Normalize text for consistent matching
  * Handles case, unicode normalization, and removes variation selectors (for emojis)
+ * NOTE: Duplicated in options.js — keep both copies in sync.
  * @param {string} text - The text to normalize
  * @returns {string} Normalized text
  */
@@ -79,6 +83,7 @@ function normalizeText(text) {
 async function loadBlockedKeywords() {
   try {
     const result = await chrome.storage.sync.get(['blockedKeywords', 'blockedPhrases', 'whitelist', 'debugMode']);
+    debugMode = result.debugMode || false;
     const keywords = result.blockedKeywords || [];
     const phrases = result.blockedPhrases || [];
     const whitelistedUsers = result.whitelist || [];
@@ -90,7 +95,7 @@ async function loadBlockedKeywords() {
     blockedPhrases = phrases.map(p => normalizeText(p)).filter(p => p.length > 0);
 
     // Normalize whitelist (lowercase usernames)
-    whitelist = whitelistedUsers.map(u => normalizeText(u.replace('@', ''))).filter(u => u.length > 0);
+    whitelist = whitelistedUsers.map(u => normalizeText(u.replaceAll('@', ''))).filter(u => u.length > 0);
 
     debugLog(`Loaded ${blockedKeywords.length} blocked keywords, ${blockedPhrases.length} blocked phrases, and ${whitelist.length} whitelisted users`);
   } catch (error) {
@@ -116,8 +121,6 @@ function injectStyles() {
       display: none !important;
     }
   `;
-  document.head.appendChild(style);
-  document.head.appendChild(style);
   document.head.appendChild(style);
   debugLog('Styles injected');
 }
@@ -175,8 +178,6 @@ function injectFloatingIcon() {
   document.body.appendChild(iconContainer);
   debugLog('Floating icon injected');
 }
-
-
 
 
 
@@ -947,6 +948,8 @@ async function processTweet(tweetElement) {
       if (displayNameBlock) {
         tweetElement.classList.add(HIDDEN_CLASS);
         debugStats.tweetsHidden++;
+        updateBadgeCount();
+        updateFloatingIconBadge();
         debugLog(`🚫 Hid tweet from @${username} (display name "${displayName}" matched: "${displayNameBlock}")`);
         // Cache as blocked
         bioCache.set(username, {
@@ -969,6 +972,8 @@ async function processTweet(tweetElement) {
       if (phraseBlock) {
         tweetElement.classList.add(HIDDEN_CLASS);
         debugStats.tweetsHidden++;
+        updateBadgeCount();
+        updateFloatingIconBadge();
         debugLog(`🚫 Hid tweet from @${username} (phrase matched: "${phraseBlock}")`);
         // IMPORTANT: Do NOT cache user as blocked for phrase match
         // We only hide this specific tweet
@@ -1007,6 +1012,8 @@ async function processTweet(tweetElement) {
         if (parentBlocked) {
           tweetElement.classList.add(HIDDEN_CLASS);
           debugStats.tweetsHidden++;
+          updateBadgeCount();
+          updateFloatingIconBadge();
           debugLog(`🚫 Hid reply from @${username} to blocked user @${replyingTo} (blocked by: "${parentBlocked}")`);
           return;
         }
